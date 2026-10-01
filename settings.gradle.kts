@@ -17,5 +17,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "key-service"
+rootProject.name = "crypto-service-aes256gcm"
 

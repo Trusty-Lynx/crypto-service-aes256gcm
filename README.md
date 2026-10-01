@@ -1,4 +1,4 @@
-# key-service
+# crypto-service-aes256gcm
 
 This project was created using the [Ktor Project Generator](https://start.ktor.io).
 
