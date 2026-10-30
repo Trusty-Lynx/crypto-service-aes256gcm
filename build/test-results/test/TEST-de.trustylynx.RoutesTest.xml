@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="de.trustylynx.RoutesTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-30T10:49:07.322Z" hostname="LAPTOP_NIKLAS" time="1.742">
+  <properties/>
+  <testcase name="invalid part is rejected" classname="de.trustylynx.RoutesTest" time="1.618"/>
+  <testcase name="ChaCha package is rejected before requesting a key" classname="de.trustylynx.RoutesTest" time="0.024"/>
+  <testcase name="encrypt and decrypt preserve the client ciphertext" classname="de.trustylynx.RoutesTest" time="0.047"/>
+  <testcase name="zero key version is rejected before requesting a key" classname="de.trustylynx.RoutesTest" time="0.009"/>
+  <testcase name="wrong service token is unauthorized" classname="de.trustylynx.RoutesTest" time="0.012"/>
+  <testcase name="tampered ciphertext returns integrity error" classname="de.trustylynx.RoutesTest" time="0.011"/>
+  <testcase name="health endpoint does not require a token" classname="de.trustylynx.RoutesTest" time="0.011"/>
+  <system-out><![CDATA[2026-10-30 11:49:08.584 [DefaultDispatcher-worker-2 @call-context#3] INFO  io.ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active.
+2026-10-30 11:49:08.732 [DefaultDispatcher-worker-2 @call-context#3] INFO  io.ktor.test - Application started in 0.171 seconds.
+2026-10-30 11:49:08.739 [DefaultDispatcher-worker-1 @coroutine#5] INFO  io.ktor.test - Responding at http://localhost:80
+2026-10-30 11:49:08.739 [DefaultDispatcher-worker-1 @coroutine#5] INFO  io.ktor.test - Responding at https://localhost:443
+2026-10-30 11:49:08.958 [DefaultDispatcher-worker-3 @call-context#15] INFO  io.ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active.
+2026-10-30 11:49:08.959 [DefaultDispatcher-worker-3 @call-context#15] INFO  io.ktor.test - Application started in 0.002 seconds.
+2026-10-30 11:49:08.959 [DefaultDispatcher-worker-6 @coroutine#17] INFO  io.ktor.test - Responding at http://localhost:80
+2026-10-30 11:49:08.959 [DefaultDispatcher-worker-6 @coroutine#17] INFO  io.ktor.test - Responding at https://localhost:443
+2026-10-30 11:49:08.967 [DefaultDispatcher-worker-6 @request#15] WARN  audit - decrypt failed userId=u42 itemId=i7 part=s error=wrong_service
+2026-10-30 11:49:08.977 [DefaultDispatcher-worker-5 @call-context#27] INFO  io.ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active.
+2026-10-30 11:49:08.979 [DefaultDispatcher-worker-5 @call-context#27] INFO  io.ktor.test - Application started in 0.003 seconds.
+2026-10-30 11:49:08.979 [DefaultDispatcher-worker-3 @coroutine#29] INFO  io.ktor.test - Responding at http://localhost:80
+2026-10-30 11:49:08.979 [DefaultDispatcher-worker-3 @coroutine#29] INFO  io.ktor.test - Responding at https://localhost:443
+2026-10-30 11:49:09.025 [DefaultDispatcher-worker-7 @call-context#43] INFO  io.ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active.
+2026-10-30 11:49:09.026 [DefaultDispatcher-worker-7 @call-context#43] INFO  io.ktor.test - Application started in 0.001 seconds.
+2026-10-30 11:49:09.026 [DefaultDispatcher-worker-8 @coroutine#45] INFO  io.ktor.test - Responding at http://localhost:80
+2026-10-30 11:49:09.027 [DefaultDispatcher-worker-8 @coroutine#45] INFO  io.ktor.test - Responding at https://localhost:443
+2026-10-30 11:49:09.028 [DefaultDispatcher-worker-7 @request#43] WARN  audit - decrypt failed userId=u42 itemId=i7 part=s error=bad_request
+2026-10-30 11:49:09.037 [DefaultDispatcher-worker-9 @call-context#55] INFO  io.ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active.
+2026-10-30 11:49:09.038 [DefaultDispatcher-worker-9 @call-context#55] INFO  io.ktor.test - Application started in 0.002 seconds.
+2026-10-30 11:49:09.038 [DefaultDispatcher-worker-8 @coroutine#57] INFO  io.ktor.test - Responding at http://localhost:80
+2026-10-30 11:49:09.038 [DefaultDispatcher-worker-8 @coroutine#57] INFO  io.ktor.test - Responding at https://localhost:443
+2026-10-30 11:49:09.046 [DefaultDispatcher-worker-2 @call-context#67] INFO  io.ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active.
+2026-10-30 11:49:09.047 [DefaultDispatcher-worker-2 @call-context#67] INFO  io.ktor.test - Application started in 0.001 seconds.
+2026-10-30 11:49:09.047 [DefaultDispatcher-worker-5 @coroutine#69] INFO  io.ktor.test - Responding at http://localhost:80
+2026-10-30 11:49:09.048 [DefaultDispatcher-worker-5 @coroutine#69] INFO  io.ktor.test - Responding at https://localhost:443
+2026-10-30 11:49:09.049 [DefaultDispatcher-worker-2 @request#67] WARN  audit - decrypt failed userId=u42 itemId=i7 part=s error=integrity_error
+2026-10-30 11:49:09.057 [DefaultDispatcher-worker-1 @call-context#79] INFO  io.ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active.
+2026-10-30 11:49:09.058 [DefaultDispatcher-worker-1 @call-context#79] INFO  io.ktor.test - Application started in 0.001 seconds.
+2026-10-30 11:49:09.058 [DefaultDispatcher-worker-2 @coroutine#81] INFO  io.ktor.test - Responding at http://localhost:80
+2026-10-30 11:49:09.058 [DefaultDispatcher-worker-2 @coroutine#81] INFO  io.ktor.test - Responding at https://localhost:443
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

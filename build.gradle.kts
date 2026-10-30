@@ -8,7 +8,8 @@ group = "de.trustylynx"
 version = "1.0.0-SNAPSHOT"
 
 application {
-    mainClass = "io.ktor.server.netty.EngineMain"
+    mainClass = "de.trustylynx.ApplicationKt"
+    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=${project.hasProperty("development")}")
 }
 
 kotlin {
@@ -18,8 +19,11 @@ dependencies {
     implementation(ktorLibs.serialization.kotlinx.json)
     implementation(ktorLibs.server.config.yaml)
     implementation(ktorLibs.server.contentNegotiation)
+    implementation(ktorLibs.server.statusPages)
     implementation(ktorLibs.server.core)
     implementation(ktorLibs.server.netty)
+    implementation(ktorLibs.client.cio)
+    implementation(ktorLibs.client.contentNegotiation)
     implementation(libs.logback.classic)
 
     testImplementation(kotlin("test"))
