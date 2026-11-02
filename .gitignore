@@ -1,0 +1,15 @@
+# Build
+build/
+.gradle/
+.kotlin/
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+
+# Secrets
+.env
+users.properties

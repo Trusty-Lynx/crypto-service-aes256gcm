@@ -1,0 +1,19 @@
+name: crypto-service-aes256gcm
+
+services:
+  app:
+    build: .
+    container_name: crypto-service-aes256gcm
+    ports:
+      - "7496:8080"
+    restart: unless-stopped
+    env_file: .env
+    networks:
+      - default
+
+networks:
+  default:
+    name: trustylynx-net
+    external: true
+  auth-db-net:
+    external: true
