@@ -1,13 +1,19 @@
 package de.trustylynx
 
-import io.ktor.serialization.kotlinx.json.json
+import de.trustylynx.clients.DevKeyProvider
+import de.trustylynx.clients.HttpKeyProvider
+import de.trustylynx.clients.KeyProvider
+import de.trustylynx.clients.createKeyServiceHttpClient
+import de.trustylynx.plugins.configureSerialization
+import de.trustylynx.plugins.configureStatusPages
+import de.trustylynx.routes.cryptoRoutes
+import de.trustylynx.routes.healthRoute
+import de.trustylynx.services.CryptoService
 import io.ktor.server.application.Application
 import io.ktor.server.application.ApplicationStopped
-import io.ktor.server.application.install
 import io.ktor.server.application.log
-import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.server.routing.routing
 import io.ktor.server.netty.EngineMain
+import io.ktor.server.routing.routing
 
 fun main(args: Array<String>) {
     EngineMain.main(args)
@@ -31,10 +37,12 @@ fun Application.module() {
     configureApp(config, keys)
 }
 
+// separate from module() so the tests can start the app with a fake key provider
 fun Application.configureApp(config: AppConfig, keys: KeyProvider) {
-    install(ContentNegotiation) { json() }
+    configureSerialization()
     configureStatusPages()
     routing {
-        cryptoRoutes(config, keys)
+        healthRoute()
+        cryptoRoutes(CryptoService(keys), config.vaultServiceToken)
     }
 }
