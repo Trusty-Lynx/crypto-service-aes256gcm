@@ -1,5 +1,7 @@
 package de.trustylynx
 
+import de.trustylynx.clients.DerivedKey
+import de.trustylynx.clients.KeyProvider
 import io.ktor.client.request.get
 import io.ktor.client.request.header
 import io.ktor.client.request.post
