@@ -4,13 +4,27 @@ on:
   push:
     branches: [deploy]
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+permissions:
+  contents: read
 
-      - uses: webfactory/ssh-agent@v0.9.0
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  ci:
+    name: CI
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    name: Deploy auf VPS
+    needs: ci
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: webfactory/ssh-agent@dc588b651fe13675774614f8e6a936a468676387 # v0.9.0
         with:
           ssh-private-key: ${{ secrets.DEPLOY_SSH_KEY }}
 
@@ -23,6 +37,7 @@ jobs:
             --exclude='.git' \
             --exclude='.github' \
             --exclude='.env' \
+            --exclude='/data/' \
             ./ trustylynx@152.53.183.40:/opt/trustylynx/crypto-service-aes256gcm/
 
       - name: Build & restart
